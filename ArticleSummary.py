@@ -1,3 +1,5 @@
+#Code taken from Lucas Ou-Yang  'Copyright 2014, Lucas Ou-Yang'
+
 import logging
 import copy
 import os
