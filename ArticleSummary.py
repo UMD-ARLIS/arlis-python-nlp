@@ -1,4 +1,9 @@
 #Code taken from Lucas Ou-Yang  'Copyright 2014, Lucas Ou-Yang'
+# -*- coding: utf-8 -*-
+__title__ = 'newspaper'
+__author__ = 'Lucas Ou-Yang'
+__license__ = 'MIT'
+__copyright__ = 'Copyright 2014, Lucas Ou-Yang'
 
 import logging
 import copy
@@ -21,6 +26,7 @@ from .outputformatters import OutputFormatter
 from .utils import (URLHelper, RawHelper, extend_config,
                     get_available_languages, extract_meta_refresh)
 from .videos.extractors import VideoExtractor
+
 log = logging.getLogger(__name__)
 
 
@@ -560,3 +566,67 @@ class Article(object):
         """
         if not self.is_parsed:
             raise ArticleException('You must `parse()` an article first!')
+
+
+    #Get Keywords
+    def keywords(text):
+    """Get the top 10 keywords and their frequency scores ignores blacklisted
+    words in stopwords, counts the number of occurrences of each word, and
+    sorts them in reverse natural order (so descending) by number of
+    occurrences.
+    """
+    NUM_KEYWORDS = 10
+    text = split_words(text)
+    # of words before removing blacklist words
+    if text:
+        num_words = len(text)
+        text = [x for x in text if x not in stopwords]
+        freq = {}
+        for word in text:
+            if word in freq:
+                freq[word] += 1
+            else:
+                freq[word] = 1
+
+        min_size = min(NUM_KEYWORDS, len(freq))
+        keywords = sorted(freq.items(),
+                          key=lambda x: (x[1], x[0]),
+                          reverse=True)
+        keywords = keywords[:min_size]
+        keywords = dict((x, y) for x, y in keywords)
+
+        for k in keywords:
+            articleScore = keywords[k] * 1.0 / max(num_words, 1)
+            keywords[k] = articleScore * 1.5 + 1
+        return dict(keywords)
+    else:
+        return dict()
+
+   
+    
+    #Location Finder
+    def locationFinder(text):
+        gpe = [] # countries, cities, states
+        loc = [] # non gpe locations, mountain ranges, bodies of water
+        doc = nlp(text)
+        for ent in doc.ents:
+          if (ent.label_ == 'GPE'):
+            gpe.append(ent.text)
+          elif (ent.label_ == 'LOC'):
+            loc.append(ent.text)
+        return gpe, loc
+
+    #Extraction people and organizations involved
+    def nameEntityFinder(paragraph):
+       doc = nlp(paragraph)
+       nameEntityDict = {}
+       nameEntityDict_v2 = {}
+       for ent in doc.ents:
+          nameEntityDict[ent.text] = ent.label_
+          
+       for (key, value) in nameEntityDict.items():
+           if value == 'PERSON' or value == 'ORG':
+               nameEntityDict_v2[key] = value
+       return nameEntityDict_v2
+    
+    
