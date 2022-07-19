@@ -1,8 +1,6 @@
 #On console: pip install arlis-python-nlp
 
 from arlis-python-nlp import ArticleSummary
-from arlis-python-nlp import ArticleExtraction
-from arlis-python-nlp import ArticleCategory
 import nltk
 nltk.download('punkt')
 
@@ -30,3 +28,6 @@ article.publish_date
 
 #Article Extraction's object here is called extraction
 extraction = ArticleExtraction
+
+#Get location of artilce
+print(article.locationfinder(articletext))
