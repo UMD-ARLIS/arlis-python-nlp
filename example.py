@@ -8,13 +8,11 @@ nltk.download('punkt')
 article = ArticleSummary('https://www.washingtonpost.com/graphics/2019/local/teen-graffiti-hate-crime-divides-maryland-high-school/')
 article.download()
 
-#parses through the text
+#parses through the text - needed before article.text
 article.parse() 
-article.nlp() 
-article.keywords
 
-#Print article text
-articletext = print(article.text)
+#Print article text if wanted (optional)
+print(article.text)
 
 #Get Summary of article (Full Description on AIID)
 print(article.summary)
@@ -31,3 +29,9 @@ extraction = ArticleExtraction
 
 #Get location of artilce
 print(article.locationfinder(articletext))
+
+#Get sector of deployment for article
+get_Sector_of_Deployment(article.text)
+
+#Get infrastructure deployment
+get_infrastructure_sector(article.text)
