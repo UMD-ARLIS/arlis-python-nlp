@@ -17,3 +17,7 @@ def get_infrastructure_sector(text):
   vector = classifier(text, infrastructureSector)
   return vector['labels'][0]
 
+def get_harm_type(text):
+  harmType = ['Harm to social or political systems', 'Harm to civil liberties', 'Harm to physical health/safety', 'Psychological harm', 'Financial harm', 'Harm to physical property', 'Harm to intangible property', 'Other:Harm to publicly available information', 'Other:Reputational harm; False incarceration', 'Other:Reputational harm', 'Other:Privacy', 'Other', 'Other:Reputational harm/social harm (libel and defamation)']
+  vector = classifier(text, harmType)
+  return vector['labels'][0]
