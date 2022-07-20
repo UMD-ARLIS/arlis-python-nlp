@@ -9,7 +9,17 @@
 classifier = pipeline("zero-shot-classification", model="joeddav/xlm-roberta-large-xnli")
 
 def get_Sector_of_Deployment(text)
-  candidate_labels_0 = ['Education', 'Arts, entertainment and recreation', 'Transportation and storage']
-  # we can specify candidate labels in Russian or any other language above:
-  vector = classifier(text, candidate_labels_0)
-  return max(vector)
+  sectorDeployment = ['Information and communication', 'Arts, entertainment and recreation', 'Transportation and storage', 'Public administration and defence', 'Administrative and support service activities', 'Human health and social work activities', 'Education', 'Professional, scientific and technical activities', 'Financial and insurance activities', 'Wholesale and retail trade', 'Activities of households as employers', 'Accommodation and food service activities']
+  vector = classifier(text, sectorDeployment)
+  index = vector['scores'].index(max(vector['scores']))
+  return candidate_labels_0[index]
+
+def get_infrastructure_sector(text)
+  sectorDeployment = ['Transportation', 'Healthcare and public health', 'Government facilities', 'Communications', 'Food and agriculture', 'Critical manufacturing', 'Nuclear', 'Financial services', 'Information technology']
+  vector = classifier(text, sectorDeployment)
+  index = vector['scores'].index(max(vector['scores']))
+  return candidate_labels_0[index]
+
+
+
+
