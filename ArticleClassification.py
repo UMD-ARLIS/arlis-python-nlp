@@ -7,16 +7,13 @@
 !pip install sentencepiece
 
 classifier = pipeline("zero-shot-classification", model="joeddav/xlm-roberta-large-xnli")
-
 def get_Sector_of_Deployment(text):
   sectorDeployment = ['Information and communication', 'Arts, entertainment and recreation', 'Transportation and storage', 'Public administration and defence', 'Administrative and support service activities', 'Human health and social work activities', 'Education', 'Professional, scientific and technical activities', 'Financial and insurance activities', 'Wholesale and retail trade', 'Activities of households as employers', 'Accommodation and food service activities']
   vector = classifier(text, sectorDeployment)
-  index = vector['labels'][0]
-  return sectorDeployment[index]
+  return vector['labels'][0]
 
 def get_infrastructure_sector(text):
   infrastructureSector = ['Transportation', 'Healthcare and public health', 'Government facilities', 'Communications', 'Food and agriculture', 'Critical manufacturing', 'Nuclear', 'Financial services', 'Information technology']
   vector = classifier(text, infrastructureSector)
-  index = vector['labels'][0]
-  return infrastructureSector[index]
+  return vector['labels'][0]
 
