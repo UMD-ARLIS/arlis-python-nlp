@@ -5,7 +5,7 @@ import nltk
 nltk.download('punkt')
 
 #Article Summary's object here is called article
-article = ArticleSummary('https://www.washingtonpost.com/graphics/2019/local/teen-graffiti-hate-crime-divides-maryland-high-school/')
+article = ArticleSummary('https://web.archive.org/web/20220402204425/https://www.cbsnews.com/news/is-starbucks-shortchanging-its-baristas/')
 article.download()
 
 #parses through the text - needed before article.text
