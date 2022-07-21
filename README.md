@@ -7,11 +7,14 @@ This GitHub repository is for those who are involved in filling out the requried
 ## Usage 
 This section will explain how to use our program to extract taxonomy fields for an article using our example program, [example.py](https://github.com/UMD-ARLIS/arlis-python-nlp/blob/main/example.py).
 
-### Pip install our library, arlis-python-nlp
+### Before using our program 
+Our program uses our own library (arlis-python-nlp) as well as NLTK. Arlis-python-nlp and NLTK would have to be installed and imported for our program to run. Down below our two blocks that show how to install/import the required libraries. (Note: this does not include information on how to install NLTK)
+
+#### Pip install our library, arlis-python-nlp
 ```
 pip install arlis-python-nlp
 ```
-### Import required libraries 
+#### Import required libraries 
 ```
 from arlis-python-nlp import ArticleSummary
 import nltk
