@@ -12,6 +12,7 @@ import glob
 from urllib.parse import urlparse
 
 import requests
+import pandas as pd
 
 from . import images
 from . import network
@@ -628,5 +629,7 @@ class Article(object):
            if value == 'PERSON' or value == 'ORG':
                nameEntityDict_v2[key] = value
        return nameEntityDict_v2
+    
+    #Returns pandas dataframe of all functions
     
     
