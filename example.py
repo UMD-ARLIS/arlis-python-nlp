@@ -33,5 +33,8 @@ print(article.locationfinder(articletext))
 #Get sector of deployment for article
 get_Sector_of_Deployment(article.text)
 
+#Get all taxononmies
+get_TotalResults(text)
+
 #Get infrastructure deployment
 get_infrastructure_sector(article.text)
