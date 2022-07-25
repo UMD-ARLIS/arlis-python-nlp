@@ -631,5 +631,10 @@ class Article(object):
        return nameEntityDict_v2
     
     #Returns pandas dataframe of all functions
+    def totalFunctions(text)
+      df = pd.DataFrame()
+      df['Function']=['Keywords', 'Location Finder', 'Name Entity Finder']
+      df['Result']=[keywords(text), locationFinder(text), nameEntityFinder(text)]
+      return df
     
     
