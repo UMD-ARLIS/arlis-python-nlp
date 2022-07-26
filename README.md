@@ -25,7 +25,7 @@ nltk.download('punkt')
 To enter the website link into the code, the way it is done is through creating a article summary object. In the code block down below, the ArticleSummary object is article and inside the paranthesis of ArticleSummary is where you would enter your article link. The article would then be parsed, which is shown with the article.parse() command. 
 
 ```
-article = ArticleSummary('https://web.archive.org/web/20220402204425/https://www.cbsnews.com/news/is-starbucks-shortchanging-its-baristas/')
+article = ArticleSummary('https://www.cbsnews.com/news/is-starbucks-shortchanging-its-baristas/')
 article.download()
 article.parse() 
 ```
