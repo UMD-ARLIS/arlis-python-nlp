@@ -80,6 +80,11 @@ Therefore it is important to know when using the function, the article would be 
 print(get_Sector_of_Deployment(article.text))
 ```
 
+df2 = totalFunctions('https://www.washingtonpost.com/graphics/2019/local/teen-graffiti-hate-crime-divides-maryland-high-school/')
+
+
+df2.to_csv('Test.csv', encoding='utf-8', index=False)
+
 
 ## Conclusion 
 This library can extract key information however it is important to know that this process may not always be correct. Therefore if you are using this library for an important task, it is highly reccomended to check the results the code provides. Down below is a table that includes the names and contact information of the creators of this library. Please feel free to contact us using this contact information for any questions 
