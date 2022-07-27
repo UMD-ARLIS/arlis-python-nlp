@@ -80,10 +80,7 @@ Therefore it is important to know when using the function, the article would be 
 print(get_Sector_of_Deployment(article.text))
 ```
 
-df2 = totalFunctions('https://www.washingtonpost.com/graphics/2019/local/teen-graffiti-hate-crime-divides-maryland-high-school/')
 
-
-df2.to_csv('Test.csv', encoding='utf-8', index=False)
 
 
 ## Conclusion 
